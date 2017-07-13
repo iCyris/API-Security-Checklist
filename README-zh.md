@@ -37,7 +37,7 @@
 - [ ] 如果你正在解析 XML 文件, 确认确保外部实体是关闭的以避免`XXE`攻击.
 - [ ] 在文件上传中使用 CDN.
 - [ ] 如果你在处理大量的数据, 使用 Workers 和 Queues 来快速响应, 从而避免 HTTP 阻塞.
-- [ ] 不要忘了吧 DEBUG 模式关掉.
+- [ ] 不要忘了把 DEBUG 模式关掉.
 
 ## 输出
 - [ ] 发送 `X-Content-Type-Options: nosniff` 头.
