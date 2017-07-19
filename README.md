@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-[中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국의](./README-ko.md) | [Nederlands](./README-nl.md)
-=======
 [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md)
->>>>>>> shieldfy/master
+
 
 # API Security Checklist
 Checklist of the most important security countermeasures when designing, testing, and releasing your API.
@@ -10,15 +7,9 @@ Checklist of the most important security countermeasures when designing, testing
 ------------------------------------------------------------------------------
 ## Authentication
 - [ ] Don't use `Basic Auth` Use standard authentication (e.g. JWT, OAuth).
-<<<<<<< HEAD
-- [ ] Don't reinvent the wheel in `Authentication`, `token generating`, `password storing` use the standards.
-- [ ] Use `Max Retry` and jail features in Login.
-- [ ] Use encryption on all sensitive data. 
-=======
 - [ ] Don't reinvent the wheel in `Authentication`, `token generating`, `password storing`. Use the standards.
 - [ ] Use `Max Retry` and jail features in Login.
 - [ ] Use encryption on all sensitive data.
->>>>>>> shieldfy/master
 
 ### JWT (JSON Web Token)
 - [ ] Use a random complicated key (`JWT Secret`) to make brute forcing the token very hard.
@@ -38,21 +29,13 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Use `HSTS` header with SSL to avoid SSL Strip attack.
 
 ## Input
-<<<<<<< HEAD
-- [ ] Use proper HTTP method according to operation, `GET (read)`, `POST (create)`, `PUT/PATCH (replace/update)` and `DELETE (to delete a record)` and respond with `405 Method Not Allowed` if requested method don't exists in resource.
-- [ ] Validate `content-type` on request Accept header (Content Negotiation) to allow only your supported format (e.g. `application/xml`, `application/json`... etc) and respond with `406 Not Acceptable` response if not matched.
-- [ ] Validate `content-type` of posted data as you accept (e.g. `application/x-www-form-urlencoded`, `multipart/form-data ,application/json`... etc ).
-- [ ] Validate User input to avoid common vulnerabilities (e.g. `XSS`, `SQL-Injection` , `Remote Code Execution`... etc).
-- [ ] Don't use any sensitive data (`credentials` , `Passwords`, `security tokens`, or `API keys`) in the URL, but use standard Authorization header.
-- [ ] Use a API Gateway service to enable caching, Rate Limit, Spike Arrest and deploy API's resourses dynamically
-=======
+
 - [ ] Use the proper HTTP method according to the operation: `GET (read)`, `POST (create)`, `PUT/PATCH (replace/update)`, and `DELETE (to delete a record)`, and respond with `405 Method Not Allowed` if the requested method isn't appropriate for the requested resource.
 - [ ] Validate `content-type` on request Accept header (Content Negotiation) to allow only your supported format (e.g. `application/xml`, `application/json`, etc) and respond with `406 Not Acceptable` response if not matched.
 - [ ] Validate `content-type` of posted data as you accept (e.g. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, etc).
 - [ ] Validate User input to avoid common vulnerabilities (e.g. `XSS`, `SQL-Injection`, `Remote Code Execution`, etc).
 - [ ] Don't use any sensitive data (`credentials`, `Passwords`, `security tokens`, or `API keys`) in the URL, but use standard Authorization header.
 - [ ] Use an API Gateway service to enable caching, Rate Limit policies (e.g. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) and deploy APIs resources dynamically.
->>>>>>> shieldfy/master
 
 ## Processing
 - [ ] Check if all the endpoints are protected behind authentication to avoid broken authentication process.
