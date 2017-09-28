@@ -1,9 +1,11 @@
-[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Italiano](./README-it.md) | [日本語](./README-jp.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) 
+[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md)
 
 # Lista de seguridad en APIs
 Lista de las contramedidas de seguridad más importantes en cuanto al diseño, testing y publicación de tu API.
 
-------------------------------------------------------------------------------
+
+---
+
 ## Autenticación
 - [ ] No uses `Basic Auth` Usa autenticación estándar (e.g. JWT, OAuth).
 - [ ] No reinventes la rueda en `autenticación`, `generación de tokens`, `almacenamiento de contraseñas`. Usa los estándares.
@@ -61,7 +63,13 @@ Lista de las contramedidas de seguridad más importantes en cuanto al diseño, t
 - [ ] Diseña un proceso de `rollback` para tus `deploys`.
 
 
-------------------------------------------------------------------------------
+---
+
+## Ver también:
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Una colección de recursos útiles para la creación de APIs RESTful HTTP+JSON.
+
+
+---
 
 # Contribución
 Siéntete libre de contribuir haciendo un fork de éste repositorio, haciendo cambios, y enviando pull requests. Para cualquier pregunta déjanos un email en `team@shieldfy.io`.

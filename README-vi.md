@@ -1,9 +1,11 @@
-[中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-jp.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Việt Nam](./README-vi.md) 
+[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Монгол](./README-mn.md)
 
 # Danh sách các giải pháp an toàn cho API
 Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm tra và phát hành API cho ứng dụng của bạn.
 
-------------------------------------------------------------------------------
+
+---
+
 ## Xác thực (Authentication)
 - [ ] Không sử dụng `Basic Auth` Sử dụng giao thức xác thực tiêu chuẩn (chẳng hạn. [JWT](https://jwt.io/), [OAuth](https://oauth.net/)).
 - [ ] Không cung cấp các thông tin `Authentication`, `token generation`, `password storage`. Sử dụng các tiêu chuẩn.
@@ -32,13 +34,13 @@ Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm t
 - [ ] Xác nhận dữ liệu `content-type` ở mỗi tiêu đề (Content Negotiation) chỉ cho phép những định dạng được hỗ trợ (chẳng hạn như. `application/xml`, `application/json`, vv) và phản hồi `406 Not Acceptable` nếu không khớp.
 - [ ] Xác nhận dữ liệu `content-type` được chấp nhận khi gửi lên (chẳng hạn như. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, vv).
 - [ ] Xác nhận đầu vào dữ liệu người dùng để tránh các lỗ hổng phổ biến (chẳng hạn như. `XSS`, `SQL-Injection`, `Remote Code Execution`, vv).
-- [ ] Không sử dụng các dữ liệu nhạy cảm như (`credentials`, `Passwords`, `security tokens`, or `API keys`) tại URL, tuy nhiên có thể sử dụng các tiêu đề xác thực.
-- [ ] Sử dụng các dịch vụ API Gateway để bật bộ nhớ cache, Rate Limit policies (chẳng hạng như. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) và triển khai tài nguyên APIs một cách năng động.
+- [ ] Không sử dụng các dữ liệu nhạy cảm như (`credentials`, `Passwords`, `security tokens`, or `API keys`) tại URL, tuy nhiên có thể sử dụng header Authorization để xác thực.
+- [ ] Sử dụng các dịch vụ API Gateway để bật bộ nhớ cache, Rate Limit policies (chẳng hạng như. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) và deploy APIs resources linh động hơn.
 
 ## Processing
 - [ ] Kiểm tra các điểm đầu cuối đều được bảo vệ để tránh các tiến trình xác thực bị hỏng.
 - [ ] Nên tránh việc sử dụng ID của tài nguyên. Sử dụng `/me/orders` thay vì `/user/654321/orders`.
-- [ ] Không tự động tăng ID. Sử dụng UUID để thay thế..
+- [ ] Không tự động tăng ID. Sử dụng UUID để thay thế.
 - [ ] Nếu bạn muốn phân tích các tập tin XML, hãy chắc chắn các phần tử không được bật để tránh `XXE` (XML tấn công thực thể từ bên ngoài).
 - [ ] Nếu bạn muốn phân tích các tập tin XML, đảm bảo việc mở rộng thực thể không được kích hoạt để tránh để tránh `Billion Laughs/XML bomb` qua việc tấn công.
 - [ ] Sử dụng CDN để tải lên tệp tin.
@@ -46,13 +48,13 @@ Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm t
 - [ ] Đừng quên tắt chế độ DEBUG.
 
 ## Output
-- [ ] Gửi `X-Content-Type-Options: nosniff` ở tiêu đề.
-- [ ] Gửi `X-Frame-Options: deny` ở tiêu đề.
-- [ ] Gửi `Content-Security-Policy: default-src 'none'` ở tiêu đề.
-- [ ] Gỡ các thông tin về tiêu đề dấu vân tay - `X-Powered-By`, `Server`, `X-AspNet-Version` vv.
-- [ ] Phản hồi bắt buộc có thông tin `content-type`, nếu bạn trả về `application/json` thì phản hồi `content-type` của bạn sẽ là `application/json`.
+- [ ] Thêm `X-Content-Type-Options: nosniff` vào response headers.
+- [ ] Thêm `X-Frame-Options: deny` vào response headers.
+- [ ] Thêm `Content-Security-Policy: default-src 'none'` vào response headers.
+- [ ] Loại bỏ các header chứa thông tin nhạy cảm như phiên bản web server, ví dụ: `X-Powered-By`, `Server`, `X-AspNet-Version`, v.v...
+- [ ] Bắt buộc có `content-type` trong response headers, nếu bạn trả về `application/json` thì header `content-type` sẽ có  giá trị `application/json`.
 - [ ] Không gửi các thông tin nhạy cảm như `credentials`, `Passwords`, `security tokens`.
-- [ ] Trả về mã trạng thái tương ứng với hành động đã hoàn thành. (chẳng hạn. `200 OK`, `400 Không đúng định dạng`, `401 Chưa xác thực`, `405 Phương thức không được phép`, vv).
+- [ ] Trả về status code tương ứng với hành động đã hoàn thành. (chẳng hạn. `200 OK`, `400 Bad Request`, `401 Unauthorized`, 405 `Method Not Allowed`, v.v...).
 
 ## CI & CD ( Tích hợp và triển khai liên tục)
 - [ ] Kiểm tra thiết kế và thực hiện đầy đủ việc test với unit/integration.
@@ -61,7 +63,13 @@ Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm t
 - [ ] Thiết kế một giải pháp rollback (quản lý dữ liệu) cho việc triển khai.
 
 
-------------------------------------------------------------------------------
+---
+
+## Xem thêm:
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Tập hợp các tài nguyên hữu ích để xây dựng API RESTful HTTP+JSON.
+
+
+---
 
 # Đóng góp
 Hãy đóng góp bằng cách forking kho này, thực hiện một số thay đổi và gửi yêu cầu kéo. Đối với bất kỳ câu hỏi nào, hãy gửi email cho chúng tôi theo địa chỉ `team@shieldfy.io`.
