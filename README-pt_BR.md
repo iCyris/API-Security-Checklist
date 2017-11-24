@@ -1,4 +1,4 @@
-[English](./README.md) | [中文版](./README-zh.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md)
+[English](./README.md) | [繁中版](./README-tw.md) | [簡中版](./README-zh.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md) | [हिंदी](./README-hi.md) | [العربية](./README-ar.md) | [Polski](./README-pl.md)
 
 # API Security Checklist
 Lista das mais importantes medidas de segurança para o desenvolvimento, teste e publicação da sua API.
@@ -21,7 +21,7 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 ### OAuth
 - [ ] Sempre valide o `redirect_uri` no seu servidor através de uma lista de URLs conhecidas (previamente cadastradas).
 - [ ] Tente sempre retornar códigos de negociação, não o _token_ de acesso (não permita `response_type=token`).
-- [ ] Utilze o parâmetro `state` com um _hash_ aleatório para previnir CSRF no processo de autenticação OAuth.
+- [ ] Utilize o parâmetro `state` com um _hash_ aleatório para previnir CSRF no processo de autenticação OAuth.
 - [ ] Defina escopo de dados, e valide o parâmetro `scope` para cada aplicação.
 
 ## Acesso (_Access_)
